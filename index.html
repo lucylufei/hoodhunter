@@ -76,46 +76,37 @@
     body {
         margin: 0;
     }
+
+    .detail-grid {
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
 </style>
 <script type="module">
-    import {
-        Runtime,
-        Inspector
-    } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-    import define from "https://api.observablehq.com/d/6bb17d895b2c9ca3.js?v=3";
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/8e5385318449b9b3.js?v=3";
     new Runtime().module(define, name => {
-        if (name === "viewof final_plot") return new Inspector(document.querySelector(
-            "#observablehq-viewof-final_plot-7a387e7d"));
-        if (name === "dynamic_styling") return new Inspector(document.querySelector(
-            "#observablehq-dynamic_styling-7a387e7d"));
-        if (name === "leafletcss") return new Inspector(document.querySelector(
-            "#observablehq-leafletcss-7a387e7d"));
-        if (name === "viewof homeType") return new Inspector(document.querySelector(
-            "#observablehq-viewof-homeType-7a387e7d"));
-        if (name === "viewof selected") return new Inspector(document.querySelector(
-            "#observablehq-viewof-selected-7a387e7d"));
-        if (name === "mapview") return new Inspector(document.querySelector("#observablehq-mapview-7a387e7d"));
-        if (name === "selected_city_text") return new Inspector(document.querySelector(
-            "#observablehq-selected_city_text-7a387e7d"));
-        if (name === "viewof final_details") return new Inspector(document.querySelector(
-            "#observablehq-viewof-final_details-7a387e7d"));
-        if (name === "favourite_buttons") return new Inspector(document.querySelector(
-            "#observablehq-favourite_buttons-7a387e7d"));
-        if (name === "viewof ordering") return new Inspector(document.querySelector(
-            "#observablehq-viewof-ordering-7a387e7d"));
-        if (name === "viewof attr_weights") return new Inspector(document.querySelector(
-            "#observablehq-viewof-attr_weights-7a387e7d"));
-        if (name === "viewof legend") return new Inspector(document.querySelector(
-            "#observablehq-viewof-legend-7a387e7d"));
-        return ["selectedHouseType", "dataset", "unstacked", "values", "I", "series", "plot_data", "xDomain",
-            "xScale", "xAxis", "bar", "updated_svg", "stars", "cities", "resorted_array",
-            "filter_favourites", "plotFavouriteButtons", "resorted_array_filtered",
-            "filtered_resorted_array", "weighted_resorted_unstacked", "resorted_cities",
-            "resorted_cities_set", "yDomain", "comparison_height", "yRange", "yScale", "yAxis", "svg",
-            "plotComparison", "X", "Y", "Z", "filtered_dataset", "weighted_unstacked", "selectedHouseBin",
-            "sorter"
-        ].includes(name);
+      if (name === "viewof final_details") return new Inspector(document.querySelector("#observablehq-viewof-final_details-2966e160"));
+      if (name === "viewof final_plot") return new Inspector(document.querySelector("#observablehq-viewof-final_plot-2966e160"));
+      if (name === "leafletcss") return new Inspector(document.querySelector("#observablehq-leafletcss-2966e160"));
+      if (name === "dynamic_styling") return new Inspector(document.querySelector("#observablehq-dynamic_styling-2966e160"));
+      if (name === "viewof homeType") return new Inspector(document.querySelector("#observablehq-viewof-homeType-2966e160"));
+      if (name === "viewof selected") return new Inspector(document.querySelector("#observablehq-viewof-selected-2966e160"));
+      if (name === "mapview") return new Inspector(document.querySelector("#observablehq-mapview-2966e160"));
+      if (name === "selected_city_text") return new Inspector(document.querySelector("#observablehq-selected_city_text-2966e160"));
+      if (name === "favourite_buttons") return new Inspector(document.querySelector("#observablehq-favourite_buttons-2966e160"));
+      if (name === "viewof ordering") return new Inspector(document.querySelector("#observablehq-viewof-ordering-2966e160"));
+      if (name === "viewof attr_weights") return new Inspector(document.querySelector("#observablehq-viewof-attr_weights-2966e160"));
+      if (name === "viewof legend") return new Inspector(document.querySelector("#observablehq-viewof-legend-2966e160"));
+      return ["houseTypeDataSelector","yourData","filteredData","priceTrend","selectedHouseType","dataset",
+      "unstacked","values","I","series","plot_data","xDomain","xScale","xAxis","bar","updated_svg","stars","cities","resorted_array",
+      "filter_favourites","plotFavouriteButtons","resorted_array_filtered","filtered_resorted_array","weighted_resorted_unstacked",
+      "resorted_cities","resorted_cities_set","yDomain","comparison_height","yRange","yScale","yAxis","svg","plotComparison","X","Y","Z",
+      "filtered_dataset","weighted_unstacked","selectedHouseBin","sorter"].includes(name);
     });
+
+
     // Get the modal
     var modal = document.getElementById("myModal");
 
@@ -145,23 +136,23 @@
 
 <body>
     <!-- Main container -->
-    <div class="container" style="margin: 0; display: flex;">
+    <div class="container" style="max-width: 1440px; padding-left: 20px; padding-right: 20px; display: flex;">
 
         <!--  Selections  -->
         <div
             style="width: 25vw; display: block; overflow-y: auto; overflow-x: hidden; padding-left: 5px; padding-right: 5px;">
-            <div id="observablehq-selected_city_text-7a387e7d"></div>
-            <div id="observablehq-viewof-selected-7a387e7d"></div>
-            <div id="observablehq-viewof-homeType-7a387e7d"></div>
+            <div id="observablehq-selected_city_text-2966e160"></div>
+            <div id="observablehq-viewof-selected-2966e160"></div>
+            <div id="observablehq-viewof-homeType-2966e160"></div>
             <!--  Map -->
-            <div id="observablehq-mapview-7a387e7d"></div>
+            <div id="observablehq-mapview-2966e160"></div>
         </div>
 
 
         <!--  Comparison  -->
         <div style="width: 30vw; margin: 0; box-sizing: border-box; position: relative;">
             <div style="display: flex; font-size: x-small; justify-content: center;">
-                <div id="observablehq-favourite_buttons-7a387e7d"></div>
+                <div id="observablehq-favourite_buttons-2966e160"></div>
                 <div style="display: flex; justify-content: center;"><button id="myBtn">Adjust Weights</button></div>
             </div>
             <div id="observablehq-viewof-final_plot-7a387e7d"></div>
@@ -169,19 +160,19 @@
         </div>
 
         <!--  Detailed view  -->
-        <div id="observablehq-viewof-final_details-7a387e7d" style="width: 40vw;"></div>
+        <div id="observablehq-viewof-final_plot-2966e160" style="width: 40vw;"></div>
 
         <!--  Dependencies  -->
-        <div id="observablehq-dynamic_styling-7a387e7d" style="visibility: hidden;"></div>
-        <div id="observablehq-leafletcss-7a387e7d" style="visibility: hidden;"></div>
+        <div id="observablehq-dynamic_styling-2966e160" style="visibility: hidden;"></div>
+        <div id="observablehq-leafletcss-2966e160" style="visibility: hidden;"></div>
 
         <!-- The Modal -->
         <div id="myModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <div id="observablehq-viewof-ordering-7a387e7d"></div>
-                <div id="observablehq-viewof-attr_weights-7a387e7d"></div>
+                <div id="observablehq-viewof-ordering-2966e160"></div>
+                <div id="observablehq-viewof-attr_weights-2966e160"></div>
             </div>
         </div>
     </div>
