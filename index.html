@@ -2,14 +2,26 @@
 <html>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
     }
 
-    h3 {
+    h2 {
         font-size: small;
+        font-weight: 600;
+        padding-bottom: 8px;
+    }
+
+    h1 {
+        font-size: 22px;
+        font-weight: 600;
+        padding-bottom: 8px;
+        color: red;
     }
 
     /* The Modal (background) */
@@ -80,30 +92,47 @@
     .detail-grid {
         display:grid;
         grid-template-columns: 1fr 1fr;
+        grid-gap: 8px 0px;
     }
+
+    .svg-tooltip {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple   Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: rgba(69,77,93,.9);
+    border-radius: .1rem;
+    color: #fff;
+    display: block;
+    font-size: 11px;
+    max-width: 320px;
+    padding: .2rem .4rem;
+    position: absolute;
+    text-overflow: ellipsis;
+    white-space: pre;
+    z-index: 300;
+    visibility: hidden;
+  }
     
 </style>
 <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-    import define from "https://api.observablehq.com/d/8e5385318449b9b3.js?v=3";
+    import define from "https://api.observablehq.com/d/7cacdf357c1a5b22.js?v=3";
     new Runtime().module(define, name => {
-      if (name === "viewof final_details") return new Inspector(document.querySelector("#observablehq-viewof-final_details-2966e160"));
-      if (name === "viewof final_plot") return new Inspector(document.querySelector("#observablehq-viewof-final_plot-2966e160"));
-      if (name === "leafletcss") return new Inspector(document.querySelector("#observablehq-leafletcss-2966e160"));
-      if (name === "dynamic_styling") return new Inspector(document.querySelector("#observablehq-dynamic_styling-2966e160"));
-      if (name === "viewof homeType") return new Inspector(document.querySelector("#observablehq-viewof-homeType-2966e160"));
-      if (name === "viewof selected") return new Inspector(document.querySelector("#observablehq-viewof-selected-2966e160"));
-      if (name === "mapview") return new Inspector(document.querySelector("#observablehq-mapview-2966e160"));
-      if (name === "selected_city_text") return new Inspector(document.querySelector("#observablehq-selected_city_text-2966e160"));
-      if (name === "favourite_buttons") return new Inspector(document.querySelector("#observablehq-favourite_buttons-2966e160"));
-      if (name === "viewof ordering") return new Inspector(document.querySelector("#observablehq-viewof-ordering-2966e160"));
-      if (name === "viewof attr_weights") return new Inspector(document.querySelector("#observablehq-viewof-attr_weights-2966e160"));
-      if (name === "viewof legend") return new Inspector(document.querySelector("#observablehq-viewof-legend-2966e160"));
-      return ["houseTypeDataSelector","yourData","filteredData","priceTrend","selectedHouseType","dataset",
-      "unstacked","values","I","series","plot_data","xDomain","xScale","xAxis","bar","updated_svg","stars","cities","resorted_array",
-      "filter_favourites","plotFavouriteButtons","resorted_array_filtered","filtered_resorted_array","weighted_resorted_unstacked",
-      "resorted_cities","resorted_cities_set","yDomain","comparison_height","yRange","yScale","yAxis","svg","plotComparison","X","Y","Z",
-      "filtered_dataset","weighted_unstacked","selectedHouseBin","sorter"].includes(name);
+      if (name === "viewof final_details") return new Inspector(document.querySelector("#observablehq-viewof-final_details-e32e508c"));
+      if (name === "dynamic_styling") return true;
+      if (name === "leafletcss") return new Inspector(document.querySelector("#observablehq-leafletcss-e32e508c"));
+      if (name === "viewof homeType") return new Inspector(document.querySelector("#observablehq-viewof-homeType-e32e508c"));
+      if (name === "viewof selected") return new Inspector(document.querySelector("#observablehq-viewof-selected-e32e508c"));
+      if (name === "mapview") return new Inspector(document.querySelector("#observablehq-mapview-e32e508c"));
+      if (name === "selected_city_text") return new Inspector(document.querySelector("#observablehq-selected_city_text-e32e508c"));
+      if (name === "favourite_buttons") return new Inspector(document.querySelector("#observablehq-favourite_buttons-e32e508c"));
+      if (name === "viewof ordering") return new Inspector(document.querySelector("#observablehq-viewof-ordering-e32e508c"));
+      if (name === "viewof final_plot") return new Inspector(document.querySelector("#observablehq-viewof-final_plot-e32e508c"));
+      if (name === "viewof legend") return new Inspector(document.querySelector("#observablehq-viewof-legend-e32e508c"));
+      if (name === "viewof attr_weights") return new Inspector(document.querySelector("#observablehq-viewof-attr_weights-e32e508c"));
+      if (name === "city_selection") return true;
+      if (name === "selectedHouseBin") return true;
+      if (name === "homeTypes") return true;
+      if (name === "L") return true;
+      return ["houseTypeDataSelector","yourData","filteredData","priceTrend","selectedHouseType","dataset","unstacked","values","I","series","plot_data","xDomain","xScale","xAxis","bar","updated_svg","stars","cities","resorted_array","filter_favourites","plotFavouriteButtons","resorted_array_filtered","filtered_resorted_array","weighted_resorted_unstacked","resorted_cities","resorted_cities_set","yDomain","comparison_height","yRange","yScale","yAxis","svg","plotComparison","X","Y","Z","filtered_dataset","weighted_unstacked","sorter","name","pHealthChart","safetyChart","pTransitChart","pGroceryChart","pParksChart","pEmploymentChart","educationQChart","pEducationChart","scoreChart","cityObject"].includes(name);
     });
 
 
@@ -136,43 +165,45 @@
 
 <body>
     <!-- Main container -->
-    <div class="container" style="max-width: 1440px; padding-left: 20px; padding-right: 20px; display: flex;">
+    <div class="container" style="max-width: 1440px; padding-top: 16px; padding-left: 20px; 
+    padding-right: 20px; margin-left: auto; margin-right: auto; display: flex;">
 
         <!--  Selections  -->
         <div
-            style="width: 25vw; display: block; overflow-y: auto; overflow-x: hidden; padding-left: 5px; padding-right: 5px;">
-            <div id="observablehq-selected_city_text-2966e160"></div>
-            <div id="observablehq-viewof-selected-2966e160"></div>
-            <div id="observablehq-viewof-homeType-2966e160"></div>
+            style="padding-left: 20px; padding-right: 24px;">
+            <div id="observablehq-viewof-homeType-e32e508c" style="padding-top:16px"></div>
+            <div id="observablehq-viewof-selected-e32e508c" style="padding-top:4px"></div>
             <!--  Map -->
-            <div id="observablehq-mapview-2966e160"></div>
+            <div id="observablehq-mapview-e32e508c" style="padding-top:16px"></div>
         </div>
 
 
         <!--  Comparison  -->
-        <div style="width: 30vw; margin: 0; box-sizing: border-box; position: relative;">
+        <div style=" margin-right:24px; box-sizing: border-box; position: relative;">
             <div style="display: flex; font-size: x-small; justify-content: center;">
-                <div id="observablehq-favourite_buttons-2966e160"></div>
+                <div id="observablehq-favourite_buttons-e32e508c"></div>
                 <div style="display: flex; justify-content: center;"><button id="myBtn">Adjust Weights</button></div>
             </div>
-            <div id="observablehq-viewof-final_plot-7a387e7d"></div>
-            <div id="observablehq-viewof-legend-7a387e7d" style="position: absolute; bottom: 0; right: 0;"></div>
+            <div id="observablehq-viewof-final_plot-e32e508c"></div>
+            <div id="observablehq-viewof-legend-e32e508c" style="position: absolute; bottom: 20px; right: 0;"></div>
         </div>
 
         <!--  Detailed view  -->
-        <div id="observablehq-viewof-final_plot-2966e160" style="width: 40vw;"></div>
+        <div> 
+        <div id="observablehq-selected_city_text-e32e508c"></div>
+        <div id="observablehq-viewof-final_details-e32e508c" style="max-width: 500px; overflow-y: scroll; max-height:95vh;"></div>
+        </div>
 
         <!--  Dependencies  -->
-        <div id="observablehq-dynamic_styling-2966e160" style="visibility: hidden;"></div>
-        <div id="observablehq-leafletcss-2966e160" style="visibility: hidden;"></div>
+        <div id="observablehq-leafletcss-e32e508c" style="visibility: hidden;"></div>
 
         <!-- The Modal -->
         <div id="myModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <div id="observablehq-viewof-ordering-2966e160"></div>
-                <div id="observablehq-viewof-attr_weights-2966e160"></div>
+                <div id="observablehq-viewof-ordering-e32e508c"></div>
+                <div id="observablehq-viewof-attr_weights-e32e508c"></div>
             </div>
         </div>
     </div>
