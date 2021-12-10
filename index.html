@@ -14,11 +14,10 @@
     h2 {
         font-size: small;
         font-weight: 600;
-        padding-bottom: 8px;
     }
 
     h1 {
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 600;
         padding-bottom: 8px;
         color: red;
@@ -99,7 +98,6 @@
         float: right;
         font-size: 28px;
         font-weight: bold;
-        height:20px;
     }
 
     .close:hover,
@@ -125,7 +123,35 @@
     .detail-grid {
         display:grid;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 8px 0px;
+        grid-gap: 12px 0px;
+    }
+
+    .view-container {
+        padding: 15px; 
+        border-style:solid; 
+        border-width: 0.5px; 
+        border-color: #F2F2F2;
+        /* position:relative; */
+        background-color:white;
+        box-shadow: 0 2px 5px 0 rgba(32,33,36,.05),0 19px 38px 0 rgba(32,33,36,.04);
+        border-radius:5px;
+    }
+
+    .view-container > label {
+        top:-14px;
+        left:12px;
+        position:absolute;
+        /* background-color:white; */
+        font-size: 20px;
+        font-weight:600;
+    }
+
+    .detail-score {
+     padding:2px 4px; 
+    border-radius: 5px;
+    margin-left: 4px;
+     font-weight: 500;
+     font-size:small;
     }
 
     .svg-tooltip {
@@ -143,6 +169,12 @@
     z-index: 300;
     visibility: hidden;
   }
+
+  text {
+      font-size: 10.5px;
+  }
+
+
     
 </style>
 <script type="module">
@@ -196,36 +228,43 @@
     };
 </script>
 
-<body>
+<body style="background-color: #f8f9fa;">
     <!-- Main container -->
     <div class="container" style="max-width: 1440px; padding-top: 24px; padding-left: 20px; 
     padding-right: 20px; margin-left: auto; margin-right: auto; display: flex;">
 
         <!--  Selections  -->
         <div
-            style="padding-left: 20px; padding-right: 24px;">
-            <div id="observablehq-viewof-homeType-e32e508c"></div>
-            <div id="observablehq-viewof-selected-e32e508c" style="padding-top:4px"></div>
+            style="padding-right: 18px;">
+            <div class="view-container">
+                <!-- <label> Filter</label> -->
+                <div id="observablehq-viewof-homeType-e32e508c"></div>
+                <div id="observablehq-viewof-selected-e32e508c" style="padding-top:4px"></div>
+            </div>
             <!--  Map -->
             <div id="observablehq-mapview-e32e508c" style="padding-top:16px"></div>
         </div>
 
 
         <!--  Comparison  -->
-        <div style=" margin-right:24px; box-sizing: border-box; position: relative;">
+        <div class="view-container" style=" margin-right:18px; box-sizing: border-box; position: relative;">
+            <!-- <label> Comparison </label> -->
             <div style="display: flex; font-size: x-small; justify-content: left; margin-bottom: 8px;">
                 <div id="observablehq-favourite_buttons-e32e508c"></div>
                 <div style="display: flex; justify-content: center;"><button id="myBtn" class="primaryButton">Adjust Weights</button></div>
             </div>
             <div id="observablehq-viewof-ordering-e32e508c"></div>
             <div id="observablehq-viewof-final_plot-e32e508c" style="margin-top: 16px;"></div>
-            <div id="observablehq-viewof-legend-e32e508c" style="position: absolute; bottom: 20px; right: 0;"></div>
+            <div id="observablehq-viewof-legend-e32e508c" style="position: absolute; bottom: 20px; right: 30px;"></div>
         </div>
 
         <!--  Detailed view  -->
-        <div> 
-        <div id="observablehq-selected_city_text-e32e508c"></div>
-        <div id="observablehq-viewof-final_details-e32e508c" style="max-width: 500px; overflow-y: scroll; max-height:90vh;"></div>
+        <div class= "view-container"> 
+            <!-- <label> Detail</label> -->
+            <div style="overflow-y: scroll; max-height:90vh;">
+                <div id="observablehq-selected_city_text-e32e508c"></div>
+                <div id="observablehq-viewof-final_details-e32e508c"></div>
+            </div>
         </div>
 
         <!--  Dependencies  -->
